@@ -38,7 +38,6 @@ static void *_mutex_test_thread1(void *arg)
 					return NULL;
 				}
 
-				/* 此处写代码块，代码块会自动被上锁保护 */
 				snprintf(_resource, RESOURCE_BUF_SIZE, "Hello, I am thread 1");
 				printf("%s\n", _resource);
 			}
@@ -55,8 +54,7 @@ static inline void _change_resource()
 {
 	/*
 		因为函数返回类型是void，所以要使用
-		mutex_sync_return_type_is_void，并且指定
-		returnType为void *
+		mutex_sync_return_type_is_void
 	
 		有点类似java:
 		synchronized(this) {
