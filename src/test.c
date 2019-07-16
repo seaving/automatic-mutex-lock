@@ -177,7 +177,7 @@ int main()
 					return -1;
 				}
 
-				snprintf(_resource, RESOURCE_BUF_SIZE, "I modify it in the function.");
+				snprintf(_resource, RESOURCE_BUF_SIZE, "I modify it in the main function.");
 				printf("%s\n", _resource);				
 			}
 		);
