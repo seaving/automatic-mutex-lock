@@ -90,8 +90,9 @@ typedef struct __spinlock__
 		(_pLock)->locked = false; \
 		(_pLock)->fun_name = ""; \
 		(_pLock)->fun_line = 0; \
+		bool isNotReturn = (_pLock)->codeBlock_noReturn; \
 		_unlock_fun(&((_pLock)->lock)); \
-		if ((_pLock)->codeBlock_noReturn == false) \
+		if (isNotReturn == false) \
 		{ \
 			/*LOG_DEBUG_TRACE("return ==> \n");*/ \
 			return _lock_sync_##fun##line##_ret;\
@@ -144,8 +145,9 @@ typedef struct __spinlock__
 		(_pLock)->locked = false; \
 		(_pLock)->fun_name = ""; \
 		(_pLock)->fun_line = 0; \
+		bool isNotReturn = (_pLock)->codeBlock_noReturn; \
 		_unlock_fun(&((_pLock)->lock)); \
-		if ((_pLock)->codeBlock_noReturn == false) \
+		if (isNotReturn == false) \
 		{ \
 			/*LOG_DEBUG_TRACE("return ==> \n");*/ \
 			return; \
